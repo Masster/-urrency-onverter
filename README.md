@@ -1,2 +1,2 @@
-# -urrency-onverter
+# currency-converter
 Приложение для конвертации валюты.
