@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">TestSber</string>
+    <string name="app_name">КУРСЫ ВАЛЮТ</string>
+    <string name="convert">Конвертировать</string>
+    <string name="last_update_text">Последнее обновление: %1$s</string>
 </resources>

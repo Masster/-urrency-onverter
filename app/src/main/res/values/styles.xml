@@ -8,4 +8,41 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonConvert">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:text">@string/convert</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/clean_white</item>
+        <item name="android:textSize">@dimen/button_font_size</item>
+    </style>
+    <style name="CurrencyValue">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textColor">@color/deep_black</item>
+        <item name="android:textSize">@dimen/currency_value_font_size</item>
+    </style>
+    <style name="SpinnerStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="ContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="LastUpdateItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/last_update_success</item>
+        <item name="android:textSize">@dimen/last_update_font_size</item>
+    </style>
 </resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp">
+
+    <TextView
+        android:id="@+id/last_update"
+        style="@style/LastUpdateItem"
+        tools:text="@string/last_update_text" />
+
+    <LinearLayout style="@style/ContainerStyle">
+
+        <EditText
+            android:id="@+id/from_currency_value"
+            style="@style/CurrencyValue"
+            tools:text="65 000" />
+
+        <Spinner
+            android:id="@+id/from_currency"
+            style="@style/SpinnerStyle" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/ContainerStyle">
+
+        <EditText
+            android:id="@+id/to_currency_value"
+            style="@style/CurrencyValue"
+            tools:text="1 000" />
+
+        <Spinner
+            android:id="@+id/to_currency"
+            style="@style/SpinnerStyle" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/convert"
+        style="@style/ButtonConvert" />
+</LinearLayout>

@@ -15,9 +15,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
 
     // Таблица для данных по курсам валют
-    public static final String CURRENCY_VALUES = "currency_values";
+    public static final String TABLE_NAME = "CURRENCIES_CONVERTER";
 
-    // Поля таблицы CURRENCY_VALUES
+    // Поля таблицы TABLE_NAME
     public static final String CURRENCY_ID = "currencyId";
     public static final String NUMCODE = "numCode";
     public static final String CHARCODE = "charCode";
@@ -25,21 +25,21 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NAME = "name";
     public static final String VALUE = "value";
 
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " +
-                CURRENCY_VALUES +
-                " _id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                TABLE_NAME +
+                " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 CURRENCY_ID + " TEXT, " +
                 NUMCODE + " INTEGER, " +
                 CHARCODE + " TEXT, " +
                 NOMINAL + " INTEGER, " +
                 NAME + " TEXT, " +
-                VALUE + " REAL");
+                VALUE + " REAL);");
     }
 
     @Override
