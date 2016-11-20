@@ -166,9 +166,9 @@ public class ConverterScreen extends Fragment {
             fromValue = 0;
         }
 
-        final double result = fromValue * (from.getNominal() * from.getValue()) / (to.getNominal() * to.getValue());
+        final double result = fromValue * (from.getValue() / from.getNominal()) / (to.getValue() / to.getNominal());
         double rub = fromValue * from.getValue() / from.getNominal();
-        toCurrencyValue.setText(getContext().getString(R.string.other_currency, result));
+        toCurrencyValue.setText(getContext().getString(R.string.other_currency, to.getCharCode(),result));
         russianRub.setText(getContext().getString(R.string.russian_rub, rub));
 
         CommonUtils.saveLastCurrency(from, CommonUtils.CurrencyType.FROM_CURRENCY);

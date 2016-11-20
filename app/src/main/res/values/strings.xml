@@ -2,8 +2,8 @@
     <string name="app_name">КУРСЫ ВАЛЮТ</string>
     <string name="convert">Конвертировать</string>
     <string name="last_update_text">Последнее обновление: %1$s</string>
-    <string name="russian_rub">Рубли: %1$.4f</string>
-    <string name="other_currency">%1$.4f</string>
+    <string name="russian_rub">RUB: %1$.4f</string>
+    <string name="other_currency">%1$s: %2$.4f</string>
     <string name="update_button_text">Обновить данные</string>
     <string name="empty_data_text">Не удалось получить курсы валют.\nПопробуйте обновить их позднее.</string>
     <string name="dialog_title">Обновление данных</string>
