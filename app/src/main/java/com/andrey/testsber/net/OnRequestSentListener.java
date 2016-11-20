@@ -7,6 +7,3 @@ package com.andrey.testsber.net;
 public interface OnRequestSentListener {
     public void requestSent(Response response);
 }
-//public interface OnRequestSentListener {
-//    public void requestSent(Response response);
-//}

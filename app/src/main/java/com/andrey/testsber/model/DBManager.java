@@ -1,10 +1,12 @@
 package com.andrey.testsber.model;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.andrey.testsber.MainApp;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,31 +36,8 @@ public class DBManager {
         return cv;
     }
 
-    public static void insert(Currency currency) {
-        SQLiteDatabase db = getHelper().getWritableDatabase();
-        db.beginTransaction();
-        try {
-            db.insert(DBHelper.TABLE_NAME, null, currencyToCV(currency));
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-            db.close();
-        }
-    }
-
-    public static void delete(Currency currency) {
-        SQLiteDatabase db = getHelper().getWritableDatabase();
-        db.beginTransaction();
-        try {
-            db.delete(DBHelper.TABLE_NAME, DBHelper.CURRENCY_ID + " = " + currency.getCurrencyId(), null);
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-            db.close();
-        }
-    }
-
     public static void bulkInsert(List<Currency> currencies) {
+        DBManager.deleteAll();
         SQLiteDatabase db = getHelper().getWritableDatabase();
         db.beginTransaction();
         try {
@@ -85,11 +64,28 @@ public class DBManager {
     }
 
     public static Currency getCurrencyById(String id) {
-        return null;
+        SQLiteDatabase db = getHelper().getReadableDatabase();
+        final Cursor cursor = db.query(DBHelper.TABLE_NAME, null, DBHelper.CURRENCY_ID + " = ?", new String[]{id}, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            return new Currency(cursor);
+        } else {
+            return null;
+        }
     }
 
     public static List<Currency> getCurrencies() {
-
-        return Collections.emptyList();
+        SQLiteDatabase db = getHelper().getReadableDatabase();
+        final Cursor cursor = db.query(DBHelper.TABLE_NAME, null, null, null, null, null, null);
+        if (cursor != null) {
+            List<Currency> result = new ArrayList<>();
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                result.add(new Currency(cursor));
+            }
+            return result;
+        } else {
+            return Collections.emptyList();
+        }
     }
 }

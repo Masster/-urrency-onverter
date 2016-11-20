@@ -1,5 +1,6 @@
 package com.andrey.testsber.model;
 
+import android.database.Cursor;
 import android.util.Log;
 
 import org.simpleframework.xml.Attribute;
@@ -25,8 +26,17 @@ public class Currency {
     @Element(name = "Value", required = false)
     private String value;
 
-    public Currency(){
+    public Currency() {
 
+    }
+
+    public Currency(Cursor cursor) {
+        this.currencyId = cursor.getString(cursor.getColumnIndex(DBHelper.CURRENCY_ID));
+        this.numCode = cursor.getInt(cursor.getColumnIndex(DBHelper.NUMCODE));
+        this.charCode = cursor.getString(cursor.getColumnIndex(DBHelper.CHARCODE));
+        this.nominal = cursor.getInt(cursor.getColumnIndex(DBHelper.NOMINAL));
+        this.currencyName = cursor.getString(cursor.getColumnIndex(DBHelper.NAME));
+        this.value = String.valueOf(cursor.getDouble(cursor.getColumnIndex(DBHelper.VALUE)));
     }
 
     public Currency(String currencyId,

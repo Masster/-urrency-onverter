@@ -1,43 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/last_update"
-        style="@style/LastUpdateItem"
-        tools:text="@string/last_update_text" />
-
-    <LinearLayout style="@style/ContainerStyle">
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
 
         <EditText
             android:id="@+id/from_currency_value"
             style="@style/CurrencyValue"
+            android:background="@color/lcd_color"
+            android:padding="8dp"
             tools:text="65 000" />
 
-        <Spinner
-            android:id="@+id/from_currency"
-            style="@style/SpinnerStyle" />
-    </LinearLayout>
+        <LinearLayout style="@style/ContainerStyle">
 
-    <LinearLayout style="@style/ContainerStyle">
+            <Spinner
+                android:id="@+id/from_currency"
+                style="@style/SpinnerStyle"
+                android:layout_marginRight="8dp" />
 
-        <EditText
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:srcCompat="@drawable/ic_forward_black_48px" />
+
+            <Spinner
+                android:id="@+id/to_currency"
+                style="@style/SpinnerStyle"
+                android:layout_marginLeft="8dp" />
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/to_currency_value"
             style="@style/CurrencyValue"
+            android:background="@color/lcd_color"
+            android:padding="8dp"
+            android:paddingLeft="2dp"
             tools:text="1 000" />
 
-        <Spinner
-            android:id="@+id/to_currency"
-            style="@style/SpinnerStyle" />
-    </LinearLayout>
+        <TextView
+            android:id="@+id/russian_rub"
+            style="@style/CurrencyValue"
+            android:layout_marginTop="4dp"
+            android:background="@color/lcd_color"
+            android:padding="8dp"
+            android:paddingLeft="2dp"
+            android:text="@string/russian_rub"
+            android:textColor="@color/color_for_russian_rub" />
 
-    <Button
-        android:id="@+id/convert"
-        style="@style/ButtonConvert" />
-</LinearLayout>
+        <Button
+            android:id="@+id/convert"
+            style="@style/ButtonConvert" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/infotext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:textColor="@color/deep_black"
+            android:gravity="center"
+            android:text="@string/empty_data_text"/>
+        <Button
+            android:id="@+id/refreshButton"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/infotext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonConvert"
+            android:text="@string/update_button_text"/>
+    </RelativeLayout>
+</FrameLayout>

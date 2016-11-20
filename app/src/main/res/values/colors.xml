@@ -7,4 +7,6 @@
     <color name="last_update_success">#4ca701</color>
     <color name="deep_black">#000000</color>
     <color name="clean_white">#ffffff</color>
+    <color name="color_for_russian_rub">#7e7e7e</color>
+    <color name="lcd_color">#e3ecb8</color>
 </resources>

@@ -3,6 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="last_update_font_size">14dp</dimen>
-    <dimen name="currency_value_font_size">18dp</dimen>
+    <dimen name="currency_value_font_size">20dp</dimen>
     <dimen name="button_font_size">16dp</dimen>
 </resources>
